@@ -63,13 +63,13 @@ public class AppointmentController {
 		}
 		  return map;
     }
-	/*
-	@RequestMapping(value="/test",method = RequestMethod.GET)
-    public @ResponseBody Map<String,String> addTest(){
-        	System.out.println("Inside AppointmentController POST TEST");
-		  
-	    	Map<String,String> map=new HashMap<>();
-		  if(appointmentService.add(appointment)){
+
+	@RequestMapping(value="/evaluate",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    	public @ResponseBody Map<String,String> evaluate(@RequestBody Appointment appointment){
+        
+		  Map<String,String> map=new HashMap<>();
+		  //if(appointmentService.add(appointment)){
+		if(true){
       			map.put("result","success");
 		  }
 	    	else{
@@ -77,8 +77,6 @@ public class AppointmentController {
 		}
 		  return map;
     }
-	*/
-	
 	
 	
 	
