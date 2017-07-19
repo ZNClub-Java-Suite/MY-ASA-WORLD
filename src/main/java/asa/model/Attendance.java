@@ -18,11 +18,12 @@ public class Attendance {
   public Attendance(){
   }
   
-  public Attendance(String group, String date, Map<String, Boolean> members){
+  /*public Attendance(String group, String date, Map<String, Boolean> members){
     this.group=group;
     this.date=date;
     this.members=members;
-  }
+  }*/
+  
 
   public String getGroup() {
     return group;
