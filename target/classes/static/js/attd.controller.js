@@ -160,15 +160,34 @@ function($scope,$filter,$http){
 		
 		//success(number);
 		
-		$scope.attendance.number=number.toString();
+		//$scope.attendance.number=number.toString();
+		var fmtDate=$filter('date')($scope.attendance.date,"dd/MM/yy");	
+		var url='/attendance/by?group='+number.toString()+'&date='+fmtDate;
+		success(url);
+		$http.get(url).
+		then(function(response) {
+		    //DO
+			$scope.attendance.group=response.data['object']['group'];
+			//$scope.attendance.date=response.data['object']['date'];
+			//$scope.attendance.members=response.data['object']['members'];
+			var dict=response.data['object']['members'];
+			for(var key in dict){
+//				success(key+" -> "+dict[key]);
+				$scope.attendance.members.push({'name':key,'present':dict[key]});
+			}
+			
+		//	success($scope.attendance.members[1].name+" has "+$scope.attendance.members[1].present);
+
+		});	
 		
+		/*
 		$scope.attendance.members=[
 		{'name':'Ker','present':false},
 		{'name':'Ver','present':true},
 		{'name':'Ber','present':true}
 		
 		];
-		
+		*/
 		
 		
 	}
