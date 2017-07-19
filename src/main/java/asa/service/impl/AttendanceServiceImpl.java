@@ -21,13 +21,16 @@ public class AttendanceServiceImpl implements ConstantsInterface,AttendanceServi
 		Attendance attendance= new Attendance();
 		BeanUtil.copyProperties(attendanceBean,attendance);
 		
-		if(attendanceDAO.insert(attendance)==null){
-       			System.out.println("add Attendance failed");
-        		return false;
+		try{
+			attendanceDAO.save(attendance)!=null)       			
+			//success
+			return true;			
        		}
 		
-		//success
-		return true;		
+		catch(Exception e){
+			System.out.println("add Attendance failed");
+        		return false;	
+		}
  
 	}
 	
