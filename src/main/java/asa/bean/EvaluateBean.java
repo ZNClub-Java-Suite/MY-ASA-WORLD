@@ -12,7 +12,7 @@ public class EvaluateBean {
   private String sign;
   private String type;
   
-  public Schedule() {
+  public EvaluateBean() {
 
   }
   

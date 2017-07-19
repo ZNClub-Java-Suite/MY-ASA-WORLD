@@ -13,7 +13,7 @@ public class Evaluate {
   private String sign;
   private String type;
   
-  public Schedule() {
+  public Evaluate() {
 
   }
   

@@ -13,6 +13,6 @@ public interface EvaluateDAO extends MongoRepository<Evaluate, String> {
     
     public List<Evaluate> findAll();
     public List<Evaluate> findByDate(String date);
-    public Schedule insert(Evaluate evaluate);
+    public Evaluate insert(Evaluate evaluate);
 
 }
