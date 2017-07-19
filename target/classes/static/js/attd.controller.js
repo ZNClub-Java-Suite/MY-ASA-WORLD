@@ -148,7 +148,7 @@ function($scope,$filter,$http){
 
 app.controller('viewAttdCtrl',
 function($scope,$filter,$http){		
-	
+	$scope.toast='';
 	$scope.attendance={
 		
 		'number':'',
@@ -167,16 +167,23 @@ function($scope,$filter,$http){
 		$http.get(url).
 		then(function(response) {
 		    //DO
-			$scope.attendance.group=response.data['object']['group'];
-			//$scope.attendance.date=response.data['object']['date'];
-			//$scope.attendance.members=response.data['object']['members'];
-			var dict=response.data['object']['members'];
-			for(var key in dict){
-//				success(key+" -> "+dict[key]);
-				$scope.attendance.members.push({'name':key,'present':dict[key]});
+			if(response.data['result']=='success'){
+				$scope.attendance.group=response.data['object']['group'];								
+				var dict=response.data['object']['members'];
+				for(var key in dict){
+	//				success(key+" -> "+dict[key]);
+					$scope.attendance.members.push({'name':key,'present':dict[key]});
+				}
+				//success($scope.attendance.members[1].name+" has "+$scope.attendance.members[1].present);
+			   
+			}
+			else if(response.data['result']=='failed'){
+				
+			   	$scope.toast='No DATA found. Try adding new DATA in ADD ATTENDANCE';
 			}
 			
-		//	success($scope.attendance.members[1].name+" has "+$scope.attendance.members[1].present);
+			
+		
 
 		});	
 		
