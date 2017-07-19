@@ -13,6 +13,6 @@ public interface AttendanceDAO extends MongoRepository<Attendance, String> {
     
     public List<Attendance> findAll();
     public Attendance findByGroupAndDate(String group, String date);
-    public Attendance insert(Attendance attendance);
+    public Attendance save(Attendance attendance);
 
 }
