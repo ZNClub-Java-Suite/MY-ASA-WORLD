@@ -10,7 +10,7 @@ function($scope,$filter,$http){
 	
 	$scope.attendance={
 		
-		'number':'',
+		'group':'',
 		'date':'',
 		'members':[]
 	}
@@ -18,24 +18,40 @@ function($scope,$filter,$http){
 	// after selecting group
 	
 	$scope.addAttdFor=function(number){
+						
+		var fmtDate=$filter('date')($scope.attendance.date,"dd/MM/yy");	
 		
-		//success(number);
 		
 		// GET names from group
+		var url='/attendance/by?group='+number.toString()+'&date='+fmtDate;
+		success(url);
+		$http.get(url).
+		then(function(response) {
+		    //DO
+			$scope.attendance.group=response.data['object']['group'];
+			//$scope.attendance.date=response.data['object']['date'];
+			//$scope.attendance.members=response.data['object']['members'];
+			var dict=response.data['object']['members'];
+			for(var key in dict){
+//				success(key+" -> "+dict[key]);
+				$scope.attendance.members.push({'name':key,'present':dict[key]});
+			}
+			
+		//	success($scope.attendance.members[1].name+" has "+$scope.attendance.members[1].present);
+
+		});	
 		
-		$scope.attendance.number=number.toString();
 		
-		//var fmtDate=$filter('date')(new Date(),"dd/MM/yy");	
-		//$scope.attendance.date=fmtDate.toString();
 		
 		// ITERATE to INSERT Object into attendance.members
-		
+		/*
 		$scope.attendance.members=[
 		{'name':'Ker','present':true},
 		{'name':'Ver','present':true},
 		{'name':'Ber','present':true}
 		
 		];
+		*/
 		
 		
 		// END
@@ -81,9 +97,45 @@ function($scope,$filter,$http){
 	
 	$scope.addAttendance = function(){
 		
-		// POST attendance Object
+		var membersMap=[];
 		
-		success("POST success");
+		console.log($scope.attendance.members.length);
+		
+		// generate map
+		for(var i=0; i< $scope.attendance.members.length ;i++){
+			
+			var key=$scope.attendance.members[i].name;
+			var value=$scope.attendance.members[i].present;
+
+			membersMap.push(
+			{key:value}
+			);
+
+			success(" "+key+" has "+membersMap[i].key);
+
+		}
+
+		// check map
+		
+		
+
+		// POST attendance Object
+		$http.post('/appointment/evaluate',  
+		{ 
+		'group' : $scope.attendance.group,
+		'date' : $scope.attendance.date,		
+		'members' : membersMap
+		}).
+		then(function(response,status){
+			if(response.data['result']=='success'){
+				success("POST success");		
+			}
+			else{
+				error();
+			}
+		});
+		
+		
 	}
 	
 	
@@ -108,15 +160,34 @@ function($scope,$filter,$http){
 		
 		//success(number);
 		
-		$scope.attendance.number=number.toString();
+		//$scope.attendance.number=number.toString();
+		var fmtDate=$filter('date')($scope.attendance.date,"dd/MM/yy");	
+		var url='/attendance/by?group='+number.toString()+'&date='+fmtDate;
+		success(url);
+		$http.get(url).
+		then(function(response) {
+		    //DO
+			$scope.attendance.group=response.data['object']['group'];
+			//$scope.attendance.date=response.data['object']['date'];
+			//$scope.attendance.members=response.data['object']['members'];
+			var dict=response.data['object']['members'];
+			for(var key in dict){
+//				success(key+" -> "+dict[key]);
+				$scope.attendance.members.push({'name':key,'present':dict[key]});
+			}
+			
+		//	success($scope.attendance.members[1].name+" has "+$scope.attendance.members[1].present);
+
+		});	
 		
+		/*
 		$scope.attendance.members=[
 		{'name':'Ker','present':false},
 		{'name':'Ver','present':true},
 		{'name':'Ber','present':true}
 		
 		];
-		
+		*/
 		
 		
 	}
