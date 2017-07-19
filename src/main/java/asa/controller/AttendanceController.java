@@ -1,7 +1,7 @@
 package asa.controller;
 
 
-import asa.bean.Attendance;
+import asa.bean.AttendanceBean;
 import asa.service.AttendanceService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
@@ -18,7 +18,7 @@ public class AttendanceController {
 	
 	
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody Map<String,String> add(@RequestBody Attendance attendance){
+    public @ResponseBody Map<String,String> add(@RequestBody AttendanceBean attendance){
         
 		  Map<String,String> map=new HashMap<>();
 		  if(attendanceService.add(attendance)){
@@ -36,7 +36,7 @@ public class AttendanceController {
 								   @RequestParam("date") String date){
 		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AttendanceController");
-		Attendance attendance = attendanceService.get(group,date);
+		AttendanceBean attendance = attendanceService.get(group,date);
 		
 		
 		if(attendance!=null){
