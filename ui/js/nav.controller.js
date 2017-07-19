@@ -17,6 +17,9 @@ function($scope,$rootScope){
 			$rootScope.addScore=false;
 			$rootScope.viewAttd=false;
 			$rootScope.addAttd=false;
+			$rootScope.viewSchedule=false;
+			$rootScope.viewBirthday=false;
+			$rootScope.viewProfile=false;
 		}
 		// evaluate Appointment
 		else if(op=='evaluate' && name=='Appointment'){
@@ -29,6 +32,9 @@ function($scope,$rootScope){
 			$rootScope.addScore=false;
 			$rootScope.viewAttd=false;
 			$rootScope.addAttd=false;
+			$rootScope.viewSchedule=false;
+			$rootScope.viewBirthday=false;
+			$rootScope.viewProfile=false;
 		}
 		// add Attendance
 		else if(op=='add' && name=='Attendance'){
@@ -40,6 +46,9 @@ function($scope,$rootScope){
 			$rootScope.viewAttd=false;
 			$rootScope.viewScore=false;
 			$rootScope.addScore=false;
+			$rootScope.viewSchedule=false;
+			$rootScope.viewBirthday=false;
+			$rootScope.viewProfile=false;
 		}
 		// view Attendance
 		else if(op=='view' && name=='Attendance'){
@@ -51,6 +60,9 @@ function($scope,$rootScope){
 			$rootScope.addAttd=false;			
 			$rootScope.viewScore=false;
 			$rootScope.addScore=false;
+			$rootScope.viewSchedule=false;
+			$rootScope.viewBirthday=false;
+			$rootScope.viewProfile=false;
 		}
 		// add to Scoreboard
 		else if(op=='add to' && name=='Scoreboard'){
@@ -62,6 +74,9 @@ function($scope,$rootScope){
 			$rootScope.viewScore=false;
 			$rootScope.viewAttd=false;
 			$rootScope.addAttd=false;
+			$rootScope.viewSchedule=false;
+			$rootScope.viewBirthday=false;
+			$rootScope.viewProfile=false;
 			
 		}
 		// view Scoreboard
@@ -74,7 +89,54 @@ function($scope,$rootScope){
 			$rootScope.addScore=false;
 			$rootScope.viewAttd=false;
 			$rootScope.addAttd=false;
+			$rootScope.viewSchedule=false;
+			$rootScope.viewBirthday=false;
+			$rootScope.viewProfile=false;
 		}
+		// view Schedule
+		else if(op=='view' && name=='Schedule'){
+			
+			$rootScope.viewSchedule=!$rootScope.viewSchedule;
+			
+			$rootScope.evalAppt=false;
+			$rootScope.addAppt=false;
+			$rootScope.viewScore=false;
+			$rootScope.addScore=false;
+			$rootScope.viewAttd=false;
+			$rootScope.addAttd=false;
+			$rootScope.viewBirthday=false;
+			$rootScope.viewProfile=false;
+		}
+		
+		else if(op=='view' && name=='Birthday'){
+			
+			$rootScope.viewBirthday=!$rootScope.viewBirthday;
+			
+			$rootScope.evalAppt=false;
+			$rootScope.addAppt=false;
+			$rootScope.viewScore=false;
+			$rootScope.addScore=false;
+			$rootScope.viewAttd=false;
+			$rootScope.addAttd=false;
+			$rootScope.viewSchedule=false;			
+			$rootScope.viewProfile=false;
+			
+		}
+		
+		else if(op=='view' && name=='Profile'){
+			
+			$rootScope.viewProfile=!$rootScope.viewProfile;
+			
+			$rootScope.evalAppt=false;
+			$rootScope.addAppt=false;
+			$rootScope.viewScore=false;
+			$rootScope.addScore=false;
+			$rootScope.viewAttd=false;
+			$rootScope.addAttd=false;
+			$rootScope.viewSchedule=false;
+			$rootScope.viewBirthday=false;
+		}
+		
 		
 	}
 	
