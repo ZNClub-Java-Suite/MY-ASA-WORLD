@@ -2,26 +2,24 @@ package asa.service.impl;
 
 import asa.service.ConstantsInterface;
 import asa.service.AttendanceService;
-//import asa.dao.ScheduleDAO ;
-import asa.bean.Attendance;
-//import asa.model.Schedule;
+import asa.bean.AttendanceBean;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.BeanUtils;
 import java.util.*;
 
 
-@Service("attendanceService")
-public class AttendanceServiceMock implements ConstantsInterface,AttendanceService{
+//@Service("attendanceService")
+//public class AttendanceServiceMock implements ConstantsInterface,AttendanceService{
+public class AttendanceServiceMock implements ConstantsInterface{
 	
-	
-	public boolean add(Attendance attendance){
+	public boolean add(AttendanceBean attendance){
 		
 		return true;		
  
 	}
 	
-	public Attendance get(String group,String date){
+	public AttendanceBean get(String group,String date){
 		
 		Map<String,Boolean> members= new HashMap<>();
 		
@@ -31,7 +29,7 @@ public class AttendanceServiceMock implements ConstantsInterface,AttendanceServi
 		members.put("Ver",Boolean.TRUE);
 		members.put("Ber",Boolean.TRUE);
 		
-		return new Attendance("1","30/06/17",members);
+		return new AttendanceBean("1","30/06/17",members);
 		
     
 	}
