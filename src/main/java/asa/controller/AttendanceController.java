@@ -38,16 +38,23 @@ public class AttendanceController {
 		System.out.println("Inside AttendanceController");
 		AttendanceBean attendance = attendanceService.get(group,date);
 		
+		try{
 		
-		if(attendance!=null){
+		//if(attendance!=null){
 			map.put("result",new String("success"));
 			map.put("object",attendance);
+		//}
+		//else{
+			map.put("result",new String("failed"));
+		//}
 		}
-		else{
+		catch(Exception e){
+			System.out.println("Exception at AttendanceController.viewByGroupAndDate()");
 			map.put("result",new String("failed"));
 		}
-			
-		return map;
+		finally{
+			return map;
+		}
 	}
 	
 
