@@ -2,9 +2,12 @@ package asa.service.impl;
 
 import asa.service.ConstantsInterface;
 import asa.service.AppointmentService;
-import asa.dao.ScheduleDAO ;
+import asa.dao.ScheduleDAO;
+import asa.dao.EvaluateDAO;
 import asa.bean.Appointment;
+import asa.bean.EvaluateBean;
 import asa.model.Schedule;
+import asa.model.Evaluate;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.BeanUtils;
@@ -16,7 +19,9 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 //public class AppointmentServiceImpl implements ConstantsInterface{
 	
 	@Autowired
-	private ScheduleDAO scheduleDAO;		
+	private ScheduleDAO scheduleDAO;
+	@Autowired
+	private EvaluateDAO evaluateDAO;
 		
     public List<Appointment> get(){
 	List<Appointment> list = new ArrayList<>();
@@ -48,7 +53,7 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
     
 	public boolean add(Appointment appointment){
 	Schedule schedule= new Schedule();
-      BeanUtils.copyProperties(appointment,schedule);
+      	BeanUtils.copyProperties(appointment,schedule);
 	System.out.println(appointment.getDate()+" - "+schedule.getDate());
      
        if(scheduleDAO.insert(schedule)==null){
@@ -59,5 +64,21 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
       //success
       return true;
     }
+	
+	
+	public boolean evaluate(EvaluateBean appointment){
+		Evaluate evaluate= new Evaluate();
+		BeanUtils.copyProperties(appointment,evaluate);
+		System.out.println(appointment.getDate()+" - "+evaluate.getDate());
+
+	       if(evaluateDAO.insert(evaluate)==null){
+			System.out.println("add Appointment failed");
+			return false;
+	       }
+
+	      //success
+	      return true;
+	
+	}
 	
 }
