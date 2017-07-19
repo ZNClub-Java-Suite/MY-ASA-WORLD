@@ -120,7 +120,7 @@ function($scope,$filter,$http){
 		
 
 		// POST attendance Object
-		$http.post('/appointment/evaluate',  
+		$http.post('/attendance',  
 		{ 
 		'group' : $scope.attendance.group,
 		'date' : $scope.attendance.date,		
