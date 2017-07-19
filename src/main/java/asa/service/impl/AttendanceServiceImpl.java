@@ -23,7 +23,7 @@ public class AttendanceServiceImpl implements ConstantsInterface,AttendanceServi
 			String group= attendanceBean.getGroup();
 			String date= attendanceBean.getDate();
 			attendance= attendanceDAO.findByGroupAndDate(group,date);
-			System.out.println("ByGroupAndDate:"+attendace.getId());
+			System.out.println("ByGroupAndDate:"+attendance.getId());
 		}
 		
 		catch(Exception e){		
@@ -33,7 +33,7 @@ public class AttendanceServiceImpl implements ConstantsInterface,AttendanceServi
 		finally{
 			BeanUtils.copyProperties(attendanceBean,attendance);
 				
-			System.out.println("ByGroupAndDate:"+attendace.getId());
+			System.out.println("ByGroupAndDate:"+attendance.getId());
 			if(attendanceDAO.save(attendance)!=null){
 				//success
 				return true;			
