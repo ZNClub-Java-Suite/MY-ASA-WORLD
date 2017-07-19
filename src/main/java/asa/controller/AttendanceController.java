@@ -1,6 +1,5 @@
 package asa.controller;
 
-
 import asa.bean.AttendanceBean;
 import asa.service.AttendanceService;
 import org.springframework.web.bind.annotation.*;
@@ -38,23 +37,15 @@ public class AttendanceController {
 		System.out.println("Inside AttendanceController");
 		AttendanceBean attendance = attendanceService.get(group,date);
 		
-		try{
-		
-		//if(attendance!=null){
+		if(attendance!=null){
 			map.put("result",new String("success"));
 			map.put("object",attendance);
-		//}
-		//else{
-			map.put("result",new String("failed"));
-		//}
 		}
-		catch(Exception e){
-			System.out.println("Exception at AttendanceController.viewByGroupAndDate()");
+		else{
 			map.put("result",new String("failed"));
 		}
-		finally{
-			return map;
-		}
+		return map;
+	
 	}
 	
 
