@@ -18,16 +18,22 @@ public class AttendanceServiceImpl implements ConstantsInterface,AttendanceServi
 	AttendanceDAO attendanceDAO;
 	
 	public boolean add(AttendanceBean attendanceBean){
-		
+		Attendance attendance=null;		
 		try{
-			Attendance attendance= attendanceDAO.findByGroupAndDate(group,date);		
+			String group= attendanceBean.getGroup();
+			String date= attendanceBean.getDate();
+			attendance= attendanceDAO.findByGroupAndDate(group,date);
+			System.out.println("ByGroupAndDate:"+attendace.getId());
 		}
 		
 		catch(Exception e){		
-			Attendance attendance= new Attendance();
+			attendance= new Attendance();
+			System.out.println("new object");
 		}
 		finally{
-			BeanUtils.copyProperties(attendanceBean,attendance);			
+			BeanUtils.copyProperties(attendanceBean,attendance);
+				
+			System.out.println("ByGroupAndDate:"+attendace.getId());
 			if(attendanceDAO.save(attendance)!=null){
 				//success
 				return true;			

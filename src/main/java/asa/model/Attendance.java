@@ -23,7 +23,10 @@ public class Attendance {
     this.date=date;
     this.members=members;
   }*/
-  
+  public String getId() {
+    return id;
+  }
+ 
 
   public String getGroup() {
     return group;
