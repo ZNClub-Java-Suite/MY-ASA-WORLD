@@ -3,7 +3,7 @@ package asa.model;
 import java.util.List;
 import org.springframework.data.annotation.Id;
 
-public class Schedule {
+public class Evaluate {
   @Id
   private String id;
   private List<String> names;
