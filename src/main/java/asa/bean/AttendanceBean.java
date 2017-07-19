@@ -1,6 +1,6 @@
 package asa.bean;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class AttendanceBean {
@@ -10,7 +10,7 @@ public class AttendanceBean {
 
   private String date;
 
-  private Map<String, Boolean> members = new HashMap<String, Boolean>();
+  private Map<String, Boolean> members = new LinkedHashMap<String, Boolean>();
   
   public AttendanceBean(){
   }

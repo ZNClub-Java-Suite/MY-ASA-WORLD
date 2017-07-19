@@ -1,6 +1,6 @@
 package asa.model;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
 
@@ -13,16 +13,20 @@ public class Attendance {
 
   private String date;
 
-  private Map<String, Boolean> members = new HashMap<String, Boolean>();
+  private Map<String, Boolean> members = new LinkedHashMap<String, Boolean>();
   
   public Attendance(){
   }
   
-  public Attendance(String group, String date, Map<String, Boolean> members){
+  /*public Attendance(String group, String date, Map<String, Boolean> members){
     this.group=group;
     this.date=date;
     this.members=members;
+  }*/
+  public String getId() {
+    return id;
   }
+ 
 
   public String getGroup() {
     return group;
