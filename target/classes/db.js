@@ -1,5 +1,8 @@
 /* MONGODB SCRIPTS */
-// link for spring data queries : https://docs.spring.io/spring-data/data-mongo/docs/current/reference/html/#mongodb.repositories.queries
+// link for spring data queries : 
+//https://docs.spring.io/spring-data/data-mongo/docs/current/reference/html/#mongodb.repositories.queries
+//https://docs.spring.io/spring-data/data-mongo/docs/current/reference/html/#repositories.query-methods.query-creation
+
 
 //connect to host
 mongo "mongodb://myasaworld-shard-00-00-zadym.mongodb.net:27017,myasaworld-shard-00-01-zadym.mongodb.net:27017,myasaworld-shard-00-02-zadym.mongodb.net:27017/test?replicaSet=myasaworld-shard-0" --authenticationDatabase admin --ssl --username <USERNAME> --password <PASSWORD>
@@ -38,4 +41,5 @@ load("srcipt.js");
 user{id,username,password,role}
 member{id,gender,dob'yyyy-mm-dd',contact,addr,name,role,group,school}
 schedule{id,class,names[],date'dd/mm/yy',time'hh:mm am',type,sign}
-
+evaluate{names[],absent[],date'dd/mm/yy',time'hh:mm am',type,sign}
+attendance{group,date,members[{"name" : "","present" : true}]}
