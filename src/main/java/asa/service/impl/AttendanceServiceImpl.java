@@ -17,8 +17,16 @@ public class AttendanceServiceImpl implements ConstantsInterface,AttendanceServi
 	@Autowired
 	AttendanceDAO attendanceDAO;
 	
-	public boolean add(AttendanceBean attendance){
+	public boolean add(AttendanceBean attendanceBean){
+		Attendance attendance= new Attendance();
+		BeanUtil.copyProperties(attendanceBean,attendance);
 		
+		if(attendanceDAO.insert(attendance)==null){
+       			System.out.println("add Attendance failed");
+        		return false;
+       		}
+		
+		//success
 		return true;		
  
 	}
