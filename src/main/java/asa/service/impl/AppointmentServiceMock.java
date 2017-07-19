@@ -11,8 +11,9 @@ import org.springframework.beans.BeanUtils;
 import java.util.*;
 
 
-@Service("appointmentService")
-public class AppointmentServiceMock implements ConstantsInterface,AppointmentService{
+//@Service("appointmentService")
+//public class AppointmentServiceMock implements ConstantsInterface,AppointmentService{
+public class AppointmentServiceMock implements ConstantsInterface{
 	
 	@Autowired
 	private ScheduleDAO scheduleDAO;		
