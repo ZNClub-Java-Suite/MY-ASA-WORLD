@@ -1,7 +1,7 @@
 package asa.controller;
 
 import asa.bean.Appointment;
-import asa.bean.Evaluate;
+import asa.bean.EvaluateBean;
 import asa.service.AppointmentService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
@@ -66,7 +66,7 @@ public class AppointmentController {
     }
 
 	@RequestMapping(value="/evaluate",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    	public @ResponseBody Map<String,String> evaluate(@RequestBody Evaluate appointment){
+    	public @ResponseBody Map<String,String> evaluate(@RequestBody EvaluateBean appointment){
         
 		  Map<String,String> map=new HashMap<>();
 		  if(appointmentService.evaluate(appointment)){
