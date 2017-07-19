@@ -3,7 +3,7 @@ package asa.bean;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Attendance {
+public class AttendanceBean {
 
 
   private String group;
@@ -12,10 +12,10 @@ public class Attendance {
 
   private Map<String, Boolean> members = new HashMap<String, Boolean>();
   
-  public Attendance(){
+  public AttendanceBean(){
   }
   
-  public Attendance(String group, String date, Map<String, Boolean> members){
+  public AttendanceBean(String group, String date, Map<String, Boolean> members){
     this.group=group;
     this.date=date;
     this.members=members;
