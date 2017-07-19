@@ -1,6 +1,6 @@
 package asa.model;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
 
@@ -13,7 +13,7 @@ public class Attendance {
 
   private String date;
 
-  private Map<String, Boolean> members = new HashMap<String, Boolean>();
+  private Map<String, Boolean> members = new LinkedHashMap<String, Boolean>();
   
   public Attendance(){
   }
