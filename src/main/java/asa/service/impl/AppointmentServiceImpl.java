@@ -31,15 +31,18 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
     }
 	
 	public List<Appointment> getByDate(String date){
-	List<Appointment> list = new ArrayList<>();
-	List<Schedule> queried = scheduleDAO.findByDate(date);
-	queried.forEach(query->{
-		Appointment appointment = new Appointment();
-		BeanUtils.copyProperties(query,appointment);
-		list.add(appointment);
-	});
-	    
-	  return list;
+		System.out.print("query date:"+date);
+		
+		List<Appointment> list = new ArrayList<>();		
+		List<Schedule> queried = scheduleDAO.findByDate(date);
+		
+		queried.forEach(query->{
+			Appointment appointment = new Appointment();
+			BeanUtils.copyProperties(query,appointment);
+			list.add(appointment);
+		});
+		System.out.print("Length:"+list.size());
+		return list;
     }
 
     
