@@ -14,6 +14,8 @@ import java.util.*;
 @Service("attendanceService")
 public class AttendanceServiceImpl implements ConstantsInterface,AttendanceService{
 	
+	@Autowired
+	AttendanceDAO attendanceDAO;
 	
 	public boolean add(AttendanceBean attendance){
 		
@@ -23,7 +25,7 @@ public class AttendanceServiceImpl implements ConstantsInterface,AttendanceServi
 	
 	public AttendanceBean get(String group,String date){
 		
-		
+		return attendanceDAO.findByGroupAndDate(group,date);
 		
     
 	}
