@@ -94,7 +94,20 @@ function($scope,$rootScope){
 		$scope.option = {'name':'Scoreboard','options':['add to','view']};
 	} 
 	
+	$scope.clickSchedule= function(){
+		$scope.navigation=true;
+		$scope.option = {'name':'Schedule','options':['view']};
+	} 
 	
+	$scope.clickBirthday= function(){
+		$scope.navigation=true;
+		$scope.option = {'name':'Birthday','options':['view']};
+	} 
+	
+	$scope.clickProfile= function(){
+		$scope.navigation=true;
+		$scope.option = {'name':'Profile','options':['view']};
+	} 
 	
 
 }
