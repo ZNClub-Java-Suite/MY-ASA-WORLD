@@ -3,7 +3,7 @@ package asa.bean;
 import java.util.List;
 
 
-public class Evaluate {
+public class EvaluateBean {
 
   private List<String> names;
   private List<String> absent;
