@@ -2,9 +2,12 @@ package asa.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.data.annotation.Id;
 
 public class Attendance {
-
+  
+  @Id
+  private String id;
 
   private String group;
 

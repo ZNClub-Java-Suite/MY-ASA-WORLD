@@ -25,8 +25,12 @@ public class AttendanceServiceImpl implements ConstantsInterface,AttendanceServi
 	
 	public AttendanceBean get(String group,String date){
 		
-		return attendanceDAO.findByGroupAndDate(group,date);
-		
+	//	return attendanceDAO.findByGroupAndDate(group,date);
+		AttendanceBean attendanceBean = new AttendanceBean();
+		Attendance attendance= attendanceDAO.findByGroupAndDate(group,date);
+		BeanUtils.copyProperties(attendance,attendanceBean);
+		return attendanceBean;
+
     
 	}
 }
