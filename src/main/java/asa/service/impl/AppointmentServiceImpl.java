@@ -11,9 +11,9 @@ import org.springframework.beans.BeanUtils;
 import java.util.*;
 
 
-//@Service("appointmentService")
-//public class AppointmentServiceImpl implements ConstantsInterface,AppointmentService{
-public class AppointmentServiceImpl implements ConstantsInterface{
+@Service("appointmentService")
+public class AppointmentServiceImpl implements ConstantsInterface,AppointmentService{
+//public class AppointmentServiceImpl implements ConstantsInterface{
 	
 	@Autowired
 	private ScheduleDAO scheduleDAO;		
@@ -31,15 +31,18 @@ public class AppointmentServiceImpl implements ConstantsInterface{
     }
 	
 	public List<Appointment> getByDate(String date){
-	List<Appointment> list = new ArrayList<>();
-	List<Schedule> queried = scheduleDAO.findByDate(date);
-	queried.forEach(query->{
-		Appointment appointment = new Appointment();
-		BeanUtils.copyProperties(query,appointment);
-		list.add(appointment);
-	});
-	    
-	  return list;
+		System.out.print("query date:"+date);
+		
+		List<Appointment> list = new ArrayList<>();		
+		List<Schedule> queried = scheduleDAO.findByDate(date);
+		
+		queried.forEach(query->{
+			Appointment appointment = new Appointment();
+			BeanUtils.copyProperties(query,appointment);
+			list.add(appointment);
+		});
+		System.out.print("Length:"+list.size());
+		return list;
     }
 
     
