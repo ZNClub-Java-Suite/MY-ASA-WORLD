@@ -2,6 +2,7 @@ package asa.bean;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.bson.Document;
 
 public class AttendanceBean {
 
@@ -10,12 +11,13 @@ public class AttendanceBean {
 
   private String date;
 
-  private Map<String, Boolean> members = new LinkedHashMap<String, Boolean>();
+  //private Map<String, Boolean> members = new LinkedHashMap<String, Boolean>();
+  private Document members;
   
   public AttendanceBean(){
   }
   
-  public AttendanceBean(String group, String date, Map<String, Boolean> members){
+  public AttendanceBean(String group, String date, Document members){
     this.group=group;
     this.date=date;
     this.members=members;
@@ -40,7 +42,7 @@ public class AttendanceBean {
     this.date = date;
   }
 
-  
+  /*
   public Map<String, Boolean> getMembers() {
     return this.members;
   }
@@ -49,5 +51,15 @@ public class AttendanceBean {
   public void setMembers(Map<String, Boolean> members) {
     this.members=members;
   }
+  */
+  public Document getMembers() {
+    return this.members;
+  }
+
+  
+  public void setMembers(Document members) {
+    this.members=members;
+  }
+  
 
 }
