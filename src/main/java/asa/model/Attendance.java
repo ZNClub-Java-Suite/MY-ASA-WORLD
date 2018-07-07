@@ -3,6 +3,7 @@ package asa.model;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
+import org.bson.Document;
 
 public class Attendance {
   
@@ -13,7 +14,8 @@ public class Attendance {
 
   private String date;
 
-  private Map<String, Boolean> members = new LinkedHashMap<String, Boolean>();
+  //private Map<String, Boolean> members = new LinkedHashMap<String, Boolean>();
+  private Document members;
   
   public Attendance(){
   }
@@ -23,6 +25,7 @@ public class Attendance {
     this.date=date;
     this.members=members;
   }*/
+  
   public String getId() {
     return id;
   }
@@ -47,13 +50,22 @@ public class Attendance {
     this.date = date;
   }
 
-  
+  /*
   public Map<String, Boolean> getMembers() {
     return this.members;
   }
 
   
   public void setMembers(Map<String, Boolean> members) {
+    this.members=members;
+  }
+  */
+  public Document getMembers() {
+    return this.members;
+  }
+
+  
+  public void setMembers(Document members) {
     this.members=members;
   }
 

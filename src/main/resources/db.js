@@ -42,4 +42,4 @@ user{id,username,password,role}
 member{id,gender,dob'yyyy-mm-dd',contact,addr,name,role,group,school}
 schedule{id,class,names[],date'dd/mm/yy',time'hh:mm am',type,sign}
 evaluate{names[],absent[],date'dd/mm/yy',time'hh:mm am',type,sign}
-attendance{group,date,members[{"name" : "","present" : true}]}
+attendance{group,date,names[],absent[]}
